@@ -1,0 +1,34 @@
+$$$
+This Caml program creates a simple GUI window for a login screen.
+It demonstrates Window and Button creation and property setting.
+$$$
+
+# --- 1. Window Creation and Properties ---
+Create window called LoginWindow:
+    Set the title to "Caml Login"
+    set the background color to #f0f0f0 $ Light gray background
+    Set the fontface to Roboto $ Use the Roboto font
+
+# --- 2. Button Creation and Properties ---
+Create a new button called LoginBtn:
+    # (properties would go here)
+
+# Set properties outside the creation block
+Display text "Log in" plus bold on button LoginBtn
+Set color of button LoginBtn to "blue" $ Background color
+Set border color of button LoginBtn to "#333333"
+Set text color of button LoginBtn to "white"
+Set align of button LoginBtn to "center"
+
+# --- 3. Output (Console feedback for setup) ---
+display 'Window setup complete.'
+
+# --- 4. Logic/Function (Placeholder for button action) ---
+Define function 'OnLoginClick' which does:
+    interact "Enter username:"
+    interact "Enter password:"
+    $ If statements would go here to check credentials
+    display 'Attempting to log in...'
+
+# (A real Caml program would need syntax to attach OnLoginClick to LoginBtn)
+# For the sake of syntax demonstration, we stop here.
