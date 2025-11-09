@@ -1,0 +1,19 @@
+$$$
+This program defines a function to process a list and then calls it.
+$$$
+
+Assign "Caml List Processor" to the title.
+display the title
+
+Define function 'ProcessList' which takes (dataList) and does:
+    Assign 0 to totalSum
+    For each number in dataList do:
+        Increase totalSum by number
+
+    If totalSum is greater than 100:
+        return "Total is huge"
+    Otherwise:
+        return "Total is moderate"
+
+Create list NumberList containing contents {50, 25, and 10}
+Call function 'ProcessList' with arguments (NumberList)
