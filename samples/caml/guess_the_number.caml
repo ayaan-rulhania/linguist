@@ -1,0 +1,77 @@
+$$$
+Game: Guess the Secret Number (1 to 10)
+This demonstrates GUI setup, random number generation,
+variable tracking, and conditional recursive logic.
+$$$
+
+# --- 1. Game State Variables ---
+# The number the user must guess
+Assign null to TargetNumber
+
+# Tracks how many tries the user has taken
+Assign 0 to Attempts
+
+# Flag to keep the game loop running
+Assign false the boolean to GameActive
+
+# --- 2. GUI Window Setup ---
+Create window called GuessingGame:
+    Set the title to "Caml Guessing Game"
+    set the background color to "#f0f8ff" $ AliceBlue for a light, clean look
+    Set the fontface to Arial $ Use the default/standard font
+
+# --- 3. GUI Button Setup ---
+Create a new button called RestartBtn:
+    Display text "Start / Reset Game" plus bold on button RestartBtn
+    Set color of button RestartBtn to "teal"
+    Set text color of button RestartBtn to "white"
+    Set align of button RestartBtn to "center"
+    # In a real app, pressing this button would call StartGame
+
+# --- 4. Function Definitions ---
+
+# Function to start the game and pick a new number
+Define function 'StartGame' which does:
+    # Generate a random integer between 1 and 10 and store it
+    Generate random int (1 to 10) and assign to TargetNumber
+    Assign 0 to Attempts
+    Assign true the boolean to GameActive
+
+    display 'A new game has started!'
+    display 'I have selected a secret number between 1 and 10.'
+    Call function 'CheckGuess' with arguments ()
+
+# Function containing the main game loop and logic
+Define function 'CheckGuess' which does:
+    If GameActive is equal to true:
+        # Prompt the user for input and assign the result to the local variable 'UserGuess'
+        interact "Enter your guess (1 to 10):" and assign to UserGuess
+
+        # Ensure the guess is treated as a number and update attempts
+        Increase Attempts by 1
+
+        If UserGuess is equal to TargetNumber:
+            display '🥳 Congratulations!' plus bold
+            display 'You guessed ' + TargetNumber + ' in ' + Attempts + ' attempts.'
+            Assign false the boolean to GameActive
+            display 'Press the Start / Reset Game button to play again.'
+
+        Or if UserGuess is greater than TargetNumber:
+            display 'Too high! Try again.'
+            # Recursively call the function to get the next guess
+            Call function 'CheckGuess' with arguments ()
+
+        Or if UserGuess is less than TargetNumber:
+            display 'Too low! Try again.'
+            # Recursively call the function to get the next guess
+            Call function 'CheckGuess' with arguments ()
+
+        Otherwise:
+            # Handle non-number/invalid input
+            display 'Invalid input. Please enter an integer between 1 and 10.'
+            Decrease Attempts by 1 $ Don't count invalid attempts
+            Call function 'CheckGuess' with arguments ()
+
+# --- 5. Initial Execution ---
+display 'Caml Guessing Game loaded.'
+Call function 'StartGame' with arguments ()
